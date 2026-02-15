@@ -1,0 +1,47 @@
+a. all WaterBottles
+[S:AMANSECLouise] 
+>>> from MyInventoryApp.models import WaterBottle
+>>> print(WaterBottle.objects.all())
+
+b. all Suppliers sorted by country, alphabetically
+[S:AMANSECLouise]
+>>> from MyInventoryApp.models import Supplier
+>>> print(Supplier.objects.order_by('country'))
+
+c. all WaterBottles sorted by brand, alphabetically
+[S:AMANSECLouise]
+>>> print(WaterBottle.objects.order_by('brand'))
+
+d. all black WaterBottles
+[S:AMANSECLouise]
+>>> print(WaterBottle.objects.filter(color = 'Black'))
+
+e. all white HydroFlask WaterBottles
+[S:AMANSECLouise]
+>>> print(WaterBottle.objects.filter(color = 'White', brand = 'Hydro Flask'))
+
+f. all WaterBottles supplied by Sailfish Inc
+[S:AMANSECLouise]
+>>> print(WaterBottle.objects.filter(supplied_by__name = 'Sailfish, Inc.'))
+
+g. all blue WaterBottles supplied by Bucky Inc
+[S:AMANSECLouise]
+>>> print(WaterBottle.objects.filter(color = 'Blue', supplied_by__name = 'Bucky, Inc.'))
+
+h. only the name of the supplier from Germany
+[S:AMANSECLouise]
+>>> print(Supplier.objects.filter(country = 'Germany').values('name'))
+
+i. all WaterBottles that cost 3000 or higher
+[S:AMANSECLouise]
+>>> print(WaterBottle.objects.filter(cost__gte = 3000))
+
+j. all WaterBottles supplied by EITHER Bucky Inc or Meister Inc
+[S:AMANSECLouise]
+>>> x = WaterBottle.objects.filter(supplied_by__name = 'Bucky, Inc.')
+>>> y = WaterBottle.objects.filter(supplied_by__name = 'Meister, Inc.')
+>>> print(x|y)
+
+k. all WaterBottles that have Oz as the unit of its size, sorted by cost from most expensive to least expensive
+
+l. all WaterBottles with a cost that is NOT 3000 and has a wide mouth
