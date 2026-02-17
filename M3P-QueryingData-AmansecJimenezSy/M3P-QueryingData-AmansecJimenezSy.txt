@@ -1,36 +1,25 @@
 a. all WaterBottles
-[S:AMANSECLouise] 
->>> from MyInventoryApp.models import WaterBottle
->>> print(WaterBottle.objects.all())
 
 b. all Suppliers sorted by country, alphabetically
-[S:AMANSECLouise]
->>> from MyInventoryApp.models import Supplier
->>> print(Supplier.objects.order_by('country'))
+
 
 c. all WaterBottles sorted by brand, alphabetically
-[S:AMANSECLouise]
->>> print(WaterBottle.objects.order_by('brand'))
+
 
 d. all black WaterBottles
-[S:AMANSECLouise]
->>> print(WaterBottle.objects.filter(color = 'Black'))
+
 
 e. all white HydroFlask WaterBottles
-[S:AMANSECLouise]
->>> print(WaterBottle.objects.filter(color = 'White', brand = 'Hydro Flask'))
+
 
 f. all WaterBottles supplied by Sailfish Inc
-[S:AMANSECLouise]
->>> print(WaterBottle.objects.filter(supplied_by__name = 'Sailfish, Inc.'))
+
 
 g. all blue WaterBottles supplied by Bucky Inc
-[S:AMANSECLouise]
->>> print(WaterBottle.objects.filter(color = 'Blue', supplied_by__name = 'Bucky, Inc.'))
+
 
 h. only the name of the supplier from Germany
-[S:AMANSECLouise]
->>> print(Supplier.objects.filter(country = 'Germany').values('name'))
+
 
 i. all WaterBottles that cost 3000 or higher
 [S:AMANSECLouise]
@@ -43,5 +32,21 @@ j. all WaterBottles supplied by EITHER Bucky Inc or Meister Inc
 >>> print(x|y)
 
 k. all WaterBottles that have Oz as the unit of its size, sorted by cost from most expensive to least expensive
+[S:AMANSECLouise]
+>>> x = WaterBottle.objects.filter(size__contains = 'Oz') 
+>>> y = x.order_by('cost')
+>>> print(y)
 
 l. all WaterBottles with a cost that is NOT 3000 and has a wide mouth
+[S:AMANSECLouise] // I wasn't sure if it meant around 3000 or exactly 3000, so I went with the latter.
+>>> x = WaterBottle.objects.exclude(cost = 3000)
+>>> y = x.filter(mouth_size = 'Wide Mouth')
+>>> print(y)
+
+
+[P:AMANSECLouise] all WaterBottles supplied by Matsuno Inc
+[P:AMANSECLouise] all WaterBottles that have less than 100 in quantity
+[P:AMANSECLouise] all Blue and White WaterBottles, sorted alphabetically
+[P:AMANSECLouise] all Suppliers created in 2019
+[P:AMANSECLouise] only the name of the Supplier in the Philippines
+[P:AMANSECLouise] only the name of the WaterBottle with the SKU 24E5
