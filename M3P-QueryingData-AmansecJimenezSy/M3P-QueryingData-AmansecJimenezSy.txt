@@ -1,5 +1,5 @@
 # Louise Amansec, 230286; Zeus Jimenez, 242359; Nathan Riley Sy, 244311
-# February , 2026 
+# February 18, 2026 
 
 '''
 I hereby attest to the truth of the following facts:
@@ -31,16 +31,16 @@ d. all black WaterBottles
 
 
 e. all white HydroFlask WaterBottles
-
+[S:JIMENEZZeus] WaterBottle.objects.filter(brand='HydroFlask', color='White')
 
 f. all WaterBottles supplied by Sailfish Inc
-
+[S:JIMENEZZeus] WaterBottle.objects.filter(supplier__name='Sailfish, Inc.')
 
 g. all blue WaterBottles supplied by Bucky Inc
-
+[S:JIMENEZZeus] WaterBottle.objects.filter(color='Blue', supplier__name='Bucky, Inc.')
 
 h. only the name of the supplier from Germany
-
+[S:JIMENEZZeus] Supplier.objects.filter(country='Germany').values('name')
 
 i. all WaterBottles that cost 3000 or higher
 [S:AMANSECLouise] WaterBottle.objects.filter(cost__gte = 3000)
@@ -61,30 +61,45 @@ x = WaterBottle.objects.exclude(cost = 3000)
 y = x.filter(mouth_size = 'Wide Mouth')
 print(y)
 
-
-m. [P:AMANSECLouise] all WaterBottles supplied by Matsuno, Inc.
+m. [P: AMANSECLouise] all WaterBottles supplied by Matsuno, Inc.
 [S:SYRiley] WaterBottle.objects.filter(supplied_by__name = 'Matsuno, Inc.')
 
-n. [P:AMANSECLouise] all WaterBottles that have less than 100 in quantity
+n. [P: AMANSECLouise] all WaterBottles that have less than 100 in quantity
 [S:SYRiley] WaterBottle.objects.filter(current_quantity__lt = 100)
 
-o. [P:AMANSECLouise] all Suppliers created in 2019
+o. [P: AMANSECLouise] all Suppliers created in 2019
 [S:SYRiley] Supplier.objects.filter(created_at__year = 2019)
 
-p. [P:AMANSECLouise] all Blue and White WaterBottles, sorted alphabetically
-q. [P:AMANSECLouise] only the name of the Supplier in the Philippines
-r. [P:AMANSECLouise] only the name of the WaterBottle with the SKU 24E5
+p. [P: AMANSECLouise] all Blue and White WaterBottles, sorted alphabetically
+[S:JIMENEZZeus] WaterBottle.objects.filter(color__in=['Blue', 'White']).order_by('brand')
 
+q. [P: AMANSECLouise] only the name of the Supplier in the Philippines
+[S:JIMENEZZeus] Supplier.objects.filter(country='Philippines').values('name')
 
-s. [P:SYRiley] all WaterBottles that cost less than 2000
+r. [P: AMANSECLouise] only the name of the WaterBottle with the SKU 24E5
+[S:JIMENEZZeus] WaterBottle.objects.filter(sku='24E5')
+
+s. [P: SYRiley] all WaterBottles that cost less than 2000
 [S:JIMENEZZeus] WaterBottle.objects.filter(cost__lt = 2000)
 
-t. [P:SYRiley] all Suppliers from Canada
+t. [P: SYRiley] all Suppliers from Canada
 [S:JIMENEZZeus] Supplier.objects.filter(country = 'Canada')
 
-u. [P:SYRiley] only the SKUs of WaterBottles that cost more than 2500
+u. [P: SYRiley] only the SKUs of WaterBottles that cost more than 2500
 [S:JIMENEZZeus] WaterBottle.objects.filter(cost__gt = 2500).values('SKU')
 
-v. [P:SYRiley] all red WaterBottles 
-w. [P:SYRiley] all WaterBottles sorted by cost from cheapest to most expensive
-x. [P:SYRiley] all WaterBottles with quantity greater than 500
+v. [P: SYRiley] all red WaterBottles 
+w. [P: SYRiley] all WaterBottles sorted by cost from cheapest to most expensive
+x. [P: SYRiley] all WaterBottles with quantity greater than 500
+
+y. [P: JIMENEZZeus] all WaterBottles with a current quantity of 0
+
+z. [P: JIMENEZZeus] all WaterBottles that cost between 1000 and 2000
+
+aa. [P: JIMENEZZeus] all Suppliers located in the USA
+
+bb. [P: JIMENEZZeus] all WaterBottles with 'Small' size
+
+cc. [P: JIMENEZZeus] all WaterBottles sorted by current quantity from highest to lowest
+
+dd. [P: JIMENEZZeus] all WaterBottles with 'Standard Mouth' size
