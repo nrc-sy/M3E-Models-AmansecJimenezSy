@@ -10,7 +10,7 @@ c. all WaterBottles sorted by brand, alphabetically
 
 
 d. all black WaterBottles
-[S:SYRiley] WaterBottle.objects.filter(color='Black')
+[S:SYRiley] WaterBottle.objects.filter(color = 'Black')
 
 
 e. all white HydroFlask WaterBottles
@@ -26,7 +26,7 @@ h. only the name of the supplier from Germany
 
 
 i. all WaterBottles that cost 3000 or higher
-[S:AMANSECLouise] print(WaterBottle.objects.filter(cost__gte = 3000))
+[S:AMANSECLouise] WaterBottle.objects.filter(cost__gte = 3000)
 
 j. all WaterBottles supplied by EITHER Bucky Inc or Meister Inc
 [S:AMANSECLouise] x = WaterBottle.objects.filter(supplied_by__name = 'Bucky, Inc.')
