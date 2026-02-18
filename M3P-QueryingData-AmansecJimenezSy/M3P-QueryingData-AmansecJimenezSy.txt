@@ -31,10 +31,10 @@ e. all white HydroFlask WaterBottles
 [S:JIMENEZZeus] WaterBottle.objects.filter(brand='HydroFlask', color='White')
 
 f. all WaterBottles supplied by Sailfish Inc
-[S:JIMENEZZeus] WaterBottle.objects.filter(supplier__name='Sailfish, Inc.')
+[S:JIMENEZZeus] WaterBottle.objects.filter(supplied_by__name='Sailfish, Inc.')
 
 g. all blue WaterBottles supplied by Bucky Inc
-[S:JIMENEZZeus] WaterBottle.objects.filter(color='Blue', supplier__name='Bucky, Inc.')
+[S:JIMENEZZeus] WaterBottle.objects.filter(color='Blue', supplied_by__name='Bucky, Inc.')
 
 h. only the name of the supplier from Germany
 [S:JIMENEZZeus] Supplier.objects.filter(country='Germany').values('name')
@@ -74,7 +74,7 @@ q. [P: AMANSECLouise] only the name of the Supplier in the Philippines
 [S:JIMENEZZeus] Supplier.objects.filter(country='Philippines').values('name')
 
 r. [P: AMANSECLouise] only the name of the WaterBottle with the SKU 24E5
-[S:JIMENEZZeus] WaterBottle.objects.filter(sku='24E5')
+[S:JIMENEZZeus] WaterBottle.objects.filter(SKU='24E5')
 
 s. [P: SYRiley] all WaterBottles that cost less than 2000
 [S:JIMENEZZeus] WaterBottle.objects.filter(cost__lt=2000)
@@ -103,8 +103,8 @@ z. [P: JIMENEZZeus] all WaterBottles that cost between 1000 and 2000
 aa. [P: JIMENEZZeus] all Suppliers located in the USA
 [S: SYRiley] Supplier.objects.filter(country='USA')
 
-bb. [P: JIMENEZZeus] all WaterBottles with 'Small' size
-[S:AMANSECLouise]
+bb. [P: JIMENEZZeus] all WaterBottles with 'Wide Mouth' size
+[S:AMANSECLouise] WaterBottle.objects.filter(size__contains='Wide Mouth')
 
 cc. [P: JIMENEZZeus] all WaterBottles sorted by current quantity from highest to lowest
 [S:AMANSECLouise] WaterBottle.objects.order_by('-current_quantity')
