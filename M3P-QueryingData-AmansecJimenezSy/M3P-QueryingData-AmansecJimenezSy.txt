@@ -1,5 +1,5 @@
 # Louise Amansec, 230286; Zeus Jimenez, 242359; Nathan Riley Sy, 244311
-# February 18, 2026 
+# February 19, 2026 
 
 '''
 I hereby attest to the truth of the following facts:
@@ -16,19 +16,16 @@ comments of my program.
 '''
 
 a. all WaterBottles
-[S:SYRiley] WaterBottle.objects.all()
+[S:SYRiley] WaterBottle.objects.all() 
 
 b. all Suppliers sorted by country, alphabetically
 [S:SYRiley] Supplier.objects.order_by('country')
 
-
 c. all WaterBottles sorted by brand, alphabetically
 [S:SYRiley] WaterBottle.objects.order_by('brand')
 
-
 d. all black WaterBottles
 [S:SYRiley] WaterBottle.objects.filter(color = 'Black')
-
 
 e. all white HydroFlask WaterBottles
 [S:JIMENEZZeus] WaterBottle.objects.filter(brand='HydroFlask', color='White')
@@ -80,23 +77,28 @@ r. [P: AMANSECLouise] only the name of the WaterBottle with the SKU 24E5
 [S:JIMENEZZeus] WaterBottle.objects.filter(sku='24E5')
 
 s. [P: SYRiley] all WaterBottles that cost less than 2000
-[S:JIMENEZZeus] WaterBottle.objects.filter(cost__lt = 2000)
+[S:JIMENEZZeus] WaterBottle.objects.filter(cost__lt=2000)
 
 t. [P: SYRiley] all Suppliers from Canada
-[S:JIMENEZZeus] Supplier.objects.filter(country = 'Canada')
+[S:JIMENEZZeus] Supplier.objects.filter(country='Canada')
 
 u. [P: SYRiley] only the SKUs of WaterBottles that cost more than 2500
-[S:JIMENEZZeus] WaterBottle.objects.filter(cost__gt = 2500).values('SKU')
+[S:JIMENEZZeus] WaterBottle.objects.filter(cost__gt=2500).values('SKU')
 
 v. [P: SYRiley] all red WaterBottles 
+
 w. [P: SYRiley] all WaterBottles sorted by cost from cheapest to most expensive
+
 x. [P: SYRiley] all WaterBottles with quantity greater than 500
 
 y. [P: JIMENEZZeus] all WaterBottles with a current quantity of 0
+[S: SYRiley] WaterBottle.objects.filter(current_quantity = 0)
 
 z. [P: JIMENEZZeus] all WaterBottles that cost between 1000 and 2000
+[S: SYRiley] WaterBottle.objects.filter(cost__gte = 1000, cost__lte = 2000)
 
 aa. [P: JIMENEZZeus] all Suppliers located in the USA
+[S: SYRiley] Supplier.objects.filter(country='USA')
 
 bb. [P: JIMENEZZeus] all WaterBottles with 'Small' size
 
