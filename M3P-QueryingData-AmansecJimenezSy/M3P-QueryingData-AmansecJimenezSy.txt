@@ -49,7 +49,7 @@ print(x|y)
 
 k. all WaterBottles that have Oz as the unit of its size, sorted by cost from most expensive to least expensive
 [S:AMANSECLouise] x = WaterBottle.objects.filter(size__contains = 'Oz') 
-y = x.order_by('cost')
+y = x.order_by('-cost')
 print(y)
 
 l. all WaterBottles with a cost that is NOT 3000 and has a wide mouth
@@ -86,10 +86,13 @@ u. [P: SYRiley] only the SKUs of WaterBottles that cost more than 2500
 [S:JIMENEZZeus] WaterBottle.objects.filter(cost__gt=2500).values('SKU')
 
 v. [P: SYRiley] all red WaterBottles 
+[S:AMANSECLouise] WaterBottle.objects.filter(color = 'Red')
 
 w. [P: SYRiley] all WaterBottles sorted by cost from cheapest to most expensive
+[S:AMANSECLouise] WaterBottle.objects.order_by('cost')
 
 x. [P: SYRiley] all WaterBottles with quantity greater than 500
+[S:AMANSECLouise] WaterBottle.objects.filter(current_quantity__gt = 500)
 
 y. [P: JIMENEZZeus] all WaterBottles with a current quantity of 0
 [S: SYRiley] WaterBottle.objects.filter(current_quantity = 0)
@@ -101,7 +104,10 @@ aa. [P: JIMENEZZeus] all Suppliers located in the USA
 [S: SYRiley] Supplier.objects.filter(country='USA')
 
 bb. [P: JIMENEZZeus] all WaterBottles with 'Small' size
+[S:AMANSECLouise]
 
 cc. [P: JIMENEZZeus] all WaterBottles sorted by current quantity from highest to lowest
+[S:AMANSECLouise] WaterBottle.objects.order_by('-current_quantity')
 
 dd. [P: JIMENEZZeus] all WaterBottles with 'Standard Mouth' size
+[S:AMANSECLouise] WaterBottle.objects.filter(mouth_size = 'Standard Mouth')
