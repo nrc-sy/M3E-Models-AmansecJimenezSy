@@ -104,7 +104,7 @@ aa. [P: JIMENEZZeus] all Suppliers located in the USA
 [S: SYRiley] Supplier.objects.filter(country='USA')
 
 bb. [P: JIMENEZZeus] all WaterBottles with 'Wide Mouth' size
-[S:AMANSECLouise] WaterBottle.objects.filter(size__contains='Wide Mouth')
+[S:AMANSECLouise] WaterBottle.objects.filter(mouth_size = 'Wide Mouth')
 
 cc. [P: JIMENEZZeus] all WaterBottles sorted by current quantity from highest to lowest
 [S:AMANSECLouise] WaterBottle.objects.order_by('-current_quantity')
