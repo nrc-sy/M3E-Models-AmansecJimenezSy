@@ -28,7 +28,7 @@ d. all black WaterBottles
 [S:SYRiley] WaterBottle.objects.filter(color = 'Black')
 
 e. all white HydroFlask WaterBottles
-[S:JIMENEZZeus] WaterBottle.objects.filter(brand='HydroFlask', color='White')
+[S:JIMENEZZeus] WaterBottle.objects.filter(brand='Hydro Flask', color='White')
 
 f. all WaterBottles supplied by Sailfish Inc
 [S:JIMENEZZeus] WaterBottle.objects.filter(supplied_by__name='Sailfish, Inc.')
